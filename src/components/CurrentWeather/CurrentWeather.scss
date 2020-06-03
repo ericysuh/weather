@@ -1,0 +1,12 @@
+.current-weather {
+  text-align: center;
+}
+
+.today-weather {
+  margin-bottom: 20px;
+  text-align: left;
+
+  &__current-day {
+    margin-right: 2em;
+  }
+}

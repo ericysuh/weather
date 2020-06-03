@@ -1,0 +1,16 @@
+.daily-weather {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+ 
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 5fr 2fr;
+    align-items: center;
+    border-bottom: 1px solid grey;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
