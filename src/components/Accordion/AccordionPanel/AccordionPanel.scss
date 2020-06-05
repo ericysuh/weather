@@ -1,7 +1,7 @@
-.panel{
+.accordion-panel{
   display: none;
 
-  &-isOpen {
+  &--isOpen {
     display: block;
   }
 }

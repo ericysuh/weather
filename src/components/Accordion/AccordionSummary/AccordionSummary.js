@@ -2,21 +2,19 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { AccordionContext } from '../Accordion';
+import { AccordionContext } from '../AccordionContext';
 
-import './Header.scss';
-
-const Header = ({ children }) => {
-  const { clickHandler } = useContext(AccordionContext);
+const AccordionSummary = ({ children }) => {
+  const { toggleOpen } = useContext(AccordionContext);
   return (
-    <div className="header" onClick={clickHandler}>
+    <div onClick={toggleOpen}>
       {children}
     </div>
   );
 };
 
-Header.propTypes = {
+AccordionSummary.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export default Header;
+export default AccordionSummary;

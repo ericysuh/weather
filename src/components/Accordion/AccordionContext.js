@@ -1,26 +1,22 @@
 import React, { useState, createContext } from 'react';
 import PropTypes from 'prop-types';
 
-import './Accordion.scss';
-
 const AccordionContext = createContext();
 
-const Accordion = ({ children }) => {
+const AccordionContextProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  function clickHandler() {
+  const toggleOpen = () => {
     setIsOpen(!isOpen);
-  }
-
+  };
   return (
-    <AccordionContext.Provider value={{ clickHandler, isOpen }}>
-      {children}
+    <AccordionContext.Provider value={{ isOpen, toggleOpen }}>
+      { children }
     </AccordionContext.Provider>
   );
 };
 
-Accordion.propTypes = {
+AccordionContextProvider.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export { Accordion, AccordionContext };
+export { AccordionContext, AccordionContextProvider };

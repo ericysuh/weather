@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { AccordionContext } from '../Accordion';
+import { AccordionContext } from '../AccordionContext';
 
-import './Panel.scss';
+import './AccordionPanel.scss';
 
-const Panel = ({ children }) => {
+const AccordionPanel = ({ children }) => {
   const { isOpen } = useContext(AccordionContext);
 
-  const panelClass = classNames('panel', {
-    'panel-isOpen': isOpen
+  const panelClass = classNames('accordion-panel', {
+    'accordion-panel--isOpen': isOpen
   });
 
   return (
@@ -19,8 +19,8 @@ const Panel = ({ children }) => {
   );
 };
 
-Panel.propTypes = {
+AccordionPanel.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export default Panel;
+export default AccordionPanel;
