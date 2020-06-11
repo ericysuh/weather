@@ -34,7 +34,7 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              name: "./src/components/App/[name].[ext]"
+              name: "./src/assets/fonts/[name].[ext]"
             }
           }
         ]  

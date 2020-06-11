@@ -1,27 +1,44 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import WeatherIcon from '../WeatherIcon/WeatherIcon';
 import { kelvinToFahrenheit } from '../../utilities/weatherUtils';
 
 import './CurrentWeather.scss';
 
 const mapState = (state) => ({
-  currentWeather: state.weatherData.current.weather[0].main,
-  currentTemp: kelvinToFahrenheit(state.weatherData.current.temp),
+  ...state.weatherData.current,
+  dailyTemp: state.weatherData.daily[0].temp,
 });
 
 const CurrentWeather = ({
-  currentWeather, currentTemp
+  temp, weather, dailyTemp
 }) => (
   <div className="current-weather">
-    <p>{currentWeather}</p>
-    <p>{currentTemp}&deg;</p>
+    <span className="current-weather__description">
+      <WeatherIcon {...weather[0]} />
+      <span className="current-weather__text">{weather[0].description}</span>
+    </span>
+    <p className="current-weather__now">{kelvinToFahrenheit(temp)}&deg;</p>
+    <span>
+      <span>{kelvinToFahrenheit(dailyTemp.min)}&deg; F</span>
+      <span>{kelvinToFahrenheit(dailyTemp.max)}&deg; F</span>
+    </span>
+
   </div>
 );
 
 CurrentWeather.propTypes = {
-  currentWeather: PropTypes.string.isRequired,
-  currentTemp: PropTypes.number.isRequired,
+  temp: PropTypes.number.isRequired,
+  weather: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string
+    })
+  ).isRequired,
+  dailyTemp: PropTypes.shape({
+    min: PropTypes.number,
+    max: PropTypes.number
+  }).isRequired
 };
 
 export default connect(mapState)(CurrentWeather);
