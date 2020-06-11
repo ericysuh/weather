@@ -1,32 +1,34 @@
-const convertHour = (h) => {
-  const newHour = (h > 12) ? Math.ceil(h % 12) : h;
-  const amOrPm = (h >= 12) ? 'PM' : 'AM';
-  if (h === 0) return '12AM';
-  return `${newHour}${amOrPm}`;
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+const getRegularTime = (militaryTime) => {
+  const hour = (militaryTime === 0) ? '12' : militaryTime % 12;
+  const suffix = (militaryTime >= 12) ? 'pm' : 'am';
+
+  return {
+    hour,
+    suffix
+  };
 };
 
-const convertEpochToUTC = (epoch) => new Date(epoch * 1000);
+export const convertEpochToUTC = (epoch) => new Date(epoch * 1000);
 
-export const convertEpochToHour = (epoch) => {
-  const hour = convertEpochToUTC(epoch).getHours();
+export const convertEpochtoHour = (epoch) => {
+  const utc = convertEpochToUTC(epoch);
+  const { hour, suffix } = getRegularTime(utc.getHours());
 
-  return convertHour(hour);
+  return hour + suffix;
 };
 
-export const convertEpochToDate = (epoch) => {
-  const date = convertEpochToUTC(epoch).getDate();
+export const getDayOfWeek = (epoch) => {
+  const d = convertEpochToUTC(epoch).getDay();
 
-  return date;
+  return days[d];
 };
 
-export const convertEpochToDay = (epoch) => {
-  const weekday = new Array(7);
-  weekday[0] = 'Sun';
-  weekday[1] = 'Mon';
-  weekday[2] = 'Tue';
-  weekday[3] = 'Wed';
-  weekday[4] = 'Thu';
-  weekday[5] = 'Fri';
-  weekday[6] = 'Sat';
-  return weekday[convertEpochToUTC(epoch).getDay()];
+export const getTime = (epoch) => {
+  const utc = convertEpochToUTC(epoch);
+  const { hour, suffix } = getRegularTime(utc.getHours());
+  const minutes = utc.getMinutes();
+
+  return `${hour}:${minutes}${suffix}`;
 };

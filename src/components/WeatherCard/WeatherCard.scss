@@ -1,0 +1,29 @@
+.weather-card {
+  width: 420px;
+  min-height: 700px;
+  padding: 15px 10px;
+
+  display: grid;
+
+  &--front {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "nav"
+      "main"
+      "footer";
+    grid-template-rows: 50px 1fr 160px;
+  }
+  color: white;
+  box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.53);
+  background: linear-gradient(180deg, #51a4db, #63afde, #74bae1);
+
+  &--day { background: linear-gradient(180deg, #51a4db, #63afde, #74bae1); }
+  &--night { background: linear-gradient(180deg, #112158, #403d80, #9762a2); }
+  &--cloudy { background: linear-gradient(180deg, #5393b2, #639bb7, #7aa6bd, #98b6c6, #a7bdca); }
+  &--rain { background: linear-gradient(180deg, #4265a3, #7779a4, #9c87a5, #bc9ba6, #d4b1a9); }
+  &--fog { background: linear-gradient(180deg, #bc8db8, #b68cb8, #ab88b8, #8f79ac, #6c6699, #5d5e90); }
+  &--snow { background: linear-gradient(180deg, #777b86, #8d9298, #9ea4a8, #a7afb4, #aeb7be); }
+  &--hot { background: linear-gradient(180deg, #800f65, #9c1e5a, #c5334c, #e74540, #fd5139); }
+  &--sand { background: linear-gradient(180deg, #b17139, #b87a40, #c78d4d, #d49d5a, #dba660); }
+  &--tornado { background: linear-gradient(180deg, #33323a, #584a4a, #735b56, #9e786a, #b3957f); }
+}

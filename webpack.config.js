@@ -12,12 +12,13 @@ module.exports = {
   module: {
     rules: [
       {
-        exclude: /node_modules|packages/,
+        exclude: /node_modules/,
         test: /\.js$/,
         use: 'babel-loader',
       },
       {
         test: /\.scss$/,
+        exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { sourceMap: true } },
@@ -25,6 +26,18 @@ module.exports = {
           { loader: 'sass-loader', options: { sourceMap: true } },
           { loader: 'sass-resources-loader', options: { resources: './src/components/App/_resources.scss' } }
         ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: "./src/components/App/[name].[ext]"
+            }
+          }
+        ]  
       }
     ],
   },
@@ -33,6 +46,7 @@ module.exports = {
       templateContent: () => `
         <!DOCTYPE html>
           <head>
+            <meta charset="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
           </head>
           <body>

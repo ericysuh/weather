@@ -3,10 +3,52 @@
 }
 html, body {
   margin: 0;
+  height: 100%;
 }
 
-.app {
-  width: 1000px;
-  padding: 20px 0;
-  margin: 0 auto;
+body {
+  background: #eee;
+  font-family: 'M + 1p 300', Arial, Helvetica, sans-serif;
+}
+
+.weather-app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+
+  &__main {
+    grid-area: main;
+  }
+}
+
+@font-face {
+  font-family: $wi-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("#{$wi-path}/#{$wi-font-family}-regular-webfont.woff2") format("woff2"),
+    url("#{$wi-path}/#{$wi-font-family}-regular-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "M + 1p 100";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("./m-plus-rounded-1c-v10-latin-100.woff2") format("woff2"),
+    url("./m-plus-rounded-1c-v10-latin-100.woff") format("woff");
+}
+
+@font-face {
+  font-family: "M + 1p 300";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("./m-plus-rounded-1c-v10-latin-300.woff2") format("woff2"),
+    url("./m-plus-rounded-1c-v10-latin-300.woff") format("woff");
 }
