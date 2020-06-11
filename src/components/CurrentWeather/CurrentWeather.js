@@ -20,9 +20,9 @@ const CurrentWeather = ({
       <span className="current-weather__text">{weather[0].description}</span>
     </span>
     <p className="current-weather__now">{kelvinToFahrenheit(temp)}&deg;</p>
-    <span>
-      <span>{kelvinToFahrenheit(dailyTemp.min)}&deg; F</span>
-      <span>{kelvinToFahrenheit(dailyTemp.max)}&deg; F</span>
+    <span className="current-weather__range">
+      <span className="current-weather__range-temp">{kelvinToFahrenheit(dailyTemp.min)}&deg; F</span>
+      <span className="current-weather__range-temp">{kelvinToFahrenheit(dailyTemp.max)}&deg; F</span>
     </span>
 
   </div>

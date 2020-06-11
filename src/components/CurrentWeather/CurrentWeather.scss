@@ -1,12 +1,63 @@
 .current-weather {
-  text-align: center;
-}
+  position: relative;
+  padding: 0 40px;
+  top: 50%;
+  transform: translateY(-50%);
 
-.today-weather {
-  margin-bottom: 20px;
-  text-align: left;
+  display: grid;
+  grid-template-columns: 2fr auto;
+  grid-template-areas: 
+    "description description"
+    "current ."
+    "current range"
+    "current range";
+  grid-template-rows: auto 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
 
-  &__current-day {
-    margin-right: 2em;
+  &__description {
+    font-size: 35px;
+    text-transform: capitalize;
+    font-family: 'M + 1p 100', Arial, Helvetica, sans-serif;
+    line-height: 1.1;
+    grid-area: description;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
   }
+
+  &__text {
+    margin: 0 0 0 10px;
+  }
+
+  &__now {
+    font-size: 140px;
+    margin: 0;
+    font-family: 'M + 1p 100', Arial, Helvetica, sans-serif;
+    line-height: 1;
+    grid-area: current;
+    align-self: end;
+  }
+
+  &__range {
+    grid-area: range;
+    color: rgba(225,225,225, 0.8);
+    font-size: 20px;
+    align-self: end;
+  }
+
+  &__range-temp {
+    display: block;
+    padding: 7px 0 0;
+    margin: 5px 0 0;
+    line-height: 1;
+    border-top: 1px solid rgba(225, 225, 225, 0.8);
+
+    &:first-child {
+      padding: 0;
+      margin: 0;
+      border-top: 0;
+    }
+  }
+
 }
