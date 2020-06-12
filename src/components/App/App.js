@@ -5,6 +5,7 @@ import CurrentWeather from '../CurrentWeather/CurrentWeather';
 import HourlyWeather from '../HourlyWeather/HourlyWeather';
 import WeatherCard from '../WeatherCard/WeatherCard';
 import WeatherHeader from '../WeatherHeader/WeatherHeader';
+import WeatherDetail from '../WeatherDetail/WeatherDetail';
 
 import './App.scss';
 
@@ -20,7 +21,7 @@ const App = () => (
     </WeatherCard>
 
     <WeatherCard view="back">
-      Detailed view
+      <WeatherDetail />
     </WeatherCard>
   </div>
 );
