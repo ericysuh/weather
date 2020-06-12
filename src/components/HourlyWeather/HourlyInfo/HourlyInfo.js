@@ -1,20 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import WeatherIcon from '../../WeatherIcon/WeatherIcon';
 import { kelvinToFahrenheit } from '../../../utilities/weatherUtils';
 import { convertEpochtoHour } from '../../../utilities/timeUtils';
-
-const mapState = (state) => ({
-  minTemp: state.weatherData.daily[0].dt,
-  maxTemp: state.weatherData.daily[0].temp.max
-});
 
 const HourlyInfo = ({
   temp,
   dt,
   index,
   weather,
+  minMax
 }) => {
   const hour = (index === 0) ? 'Now' : convertEpochtoHour(dt);
 
@@ -22,10 +17,22 @@ const HourlyInfo = ({
 
   const currentTemp = kelvinToFahrenheit(temp);
 
+  const { minTemp, maxTemp } = minMax;
+
+  const percentage = ((temp - minTemp) / (maxTemp - minTemp)) * 100;
+
+  const graphPosition = () => `${percentage.toString()}%`;
+
   return (
-    <li key={dt} className="hourly-weather__list">
-      <WeatherIcon {...weatherIcon} />
-      <p>{currentTemp}&deg;</p>
+    <li key={dt}>
+      <div
+        style={{
+          bottom: graphPosition()
+        }}
+      >
+        <WeatherIcon {...weatherIcon} />
+        <p>{currentTemp}&deg;</p>
+      </div>
       <span>{hour}</span>
 
     </li>
@@ -37,8 +44,10 @@ HourlyInfo.propTypes = {
   dt: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
   weather: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  minTemp: PropTypes.number.isRequired,
-  maxTemp: PropTypes.number.isRequired
+  minMax: PropTypes.shape({
+    minTemp: PropTypes.number,
+    maxTemp: PropTypes.number
+  }).isRequired,
 };
 
-export default connect(mapState)(HourlyInfo);
+export default HourlyInfo;
