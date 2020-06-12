@@ -4,6 +4,8 @@ import WeatherIcon from '../../WeatherIcon/WeatherIcon';
 import { kelvinToFahrenheit } from '../../../utilities/weatherUtils';
 import { convertEpochtoHour } from '../../../utilities/timeUtils';
 
+import './HourlyInfo.scss';
+
 const HourlyInfo = ({
   temp,
   dt,
@@ -24,18 +26,20 @@ const HourlyInfo = ({
   const graphPosition = () => `${percentage.toString()}%`;
 
   return (
-    <li key={dt}>
-      <div
-        style={{
-          bottom: graphPosition()
-        }}
-      >
-        <WeatherIcon {...weatherIcon} />
-        <p>{currentTemp}&deg;</p>
+    <>
+      <div className="hourly-info__graph" key={dt}>
+        <div
+          className="hourly-info__weather"
+          style={{
+            bottom: graphPosition()
+          }}
+        >
+          <WeatherIcon {...weatherIcon} category="owm-night" />
+          <span className="hourly-info__temp">{currentTemp}&deg;</span>
+        </div>
       </div>
       <span>{hour}</span>
-
-    </li>
+    </>
   );
 };
 

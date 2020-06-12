@@ -21,7 +21,9 @@ const HourlyWeather = ({ hourlyWeatherData }) => {
   return (
     <ul className="hourly-weather">
       {hourlyWeatherData.map((data, index) => (
-        <HourlyInfo {...data} key={data.dt} index={index} minMax={{ minTemp, maxTemp }} />
+        <li className="hourly-weather__list" key={data.dt}>
+          <HourlyInfo {...data} index={index} minMax={{ minTemp, maxTemp }} />
+        </li>
       ))}
     </ul>
   );

@@ -1,0 +1,16 @@
+.hourly-info {
+  &__graph {
+    position: relative;
+    margin: 25px 0; // (icon + temp) height / 2, rough number === 25px
+  }
+
+  &__weather {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+  }
+
+  &__temp {
+    display: block;
+  }
+}
