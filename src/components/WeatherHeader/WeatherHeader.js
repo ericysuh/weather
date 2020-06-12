@@ -12,7 +12,7 @@ const mapState = (state) => ({
 
 const WeatherHeader = ({ city, dt }) => (
   <div className="weather-header">
-    <p className="weather-header__city">{city}</p>
+    <h1 className="weather-header__city">{city}</h1>
     <span className="weather-header__current-time">{getDayOfWeek(dt)} as of {getTime(dt)}</span>
   </div>
 );
