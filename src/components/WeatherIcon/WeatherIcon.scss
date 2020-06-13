@@ -6,6 +6,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+// Misc
+.#{$wi-css-prefix}-misc-barometer:before     { content: $barometer; }
+.#{$wi-css-prefix}-misc-humidity:before      { content: $humidity; }
+.#{$wi-css-prefix}-misc-thermometer:before   { content: $thermometer; }
+.#{$wi-css-prefix}-misc-strong-wind:before   { content: $strong-wind; }
+.#{$wi-css-prefix}-misc-sunrise:before       { content: $sunrise; }
+.#{$wi-css-prefix}-misc-sunset:before        { content: $sunset; }
+
 //Day
 .#{$wi-css-prefix}-owm-day-200:before   { content: $day-thunderstorm            ; }
 .#{$wi-css-prefix}-owm-day-201:before   { content: $day-thunderstorm            ; }

@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import WeatherIcon from '../WeatherIcon/WeatherIcon';
 import { kelvinToFahrenheit } from '../../utilities/weatherUtils';
 import { getTime } from '../../utilities/timeUtils';
 
@@ -17,36 +18,36 @@ const WeatherDetail = ({
   wind_speed,
   pressure
 }) => (
-  <div>
-    <p>DETAILS</p>
-    <ul>
-      <li>
-        <span>icon</span>
+  <div className="weather-detail">
+    <h2 className="weather-app__sub-heading">DETAILS</h2>
+    <ul className="weather-detail__list">
+      <li className="weather-detail__list">
+        <WeatherIcon description="thermometer" category="misc" id="thermometer" />
         <span>Feels like</span>
         { kelvinToFahrenheit(feels_like) }&deg;
       </li>
       <li>
-        <span>icon</span>
+        <WeatherIcon description="sunrise" category="misc" id="sunrise" />
         <span>Sunrise</span>
         { getTime(sunrise) };
       </li>
       <li>
-        <span>icon</span>
+        <WeatherIcon description="sunset" category="misc" id="sunset" />
         <span>Sunset</span>
         { getTime(sunset) };
       </li>
       <li>
-        <span>icon</span>
+        <WeatherIcon description="humidity" category="misc" id="humidity" />
         <span>Humidity</span>
         { humidity }%;
       </li>
       <li>
-        <span>icon</span>
+        <WeatherIcon description="strong-wind" category="misc" id="strong-wind" />
         <span>Wind</span>
         { wind_speed }MPH;
       </li>
       <li>
-        <span>icon</span>
+        <WeatherIcon description="barometer" category="misc" id="barometer" />
         <span>Pressure</span>
         { pressure } hPa;
       </li>

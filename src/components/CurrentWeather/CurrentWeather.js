@@ -16,7 +16,7 @@ const CurrentWeather = ({
 }) => (
   <div className="current-weather">
     <span className="current-weather__description">
-      <WeatherIcon {...weather[0]} />
+      <WeatherIcon {...weather[0]} category="owm-night" />
       <span className="current-weather__text">{weather[0].description}</span>
     </span>
     <p className="current-weather__now">{kelvinToFahrenheit(temp)}&deg;</p>
