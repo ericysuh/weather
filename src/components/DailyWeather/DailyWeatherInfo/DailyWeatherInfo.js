@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { convertEpochToHour } from '../../../utilities/timeUtils';
+import { convertEpochtoHour } from '../../../utilities/timeUtils';
 import { degToCompass } from '../../../utilities/weatherUtils';
 
 import './DailyWeatherInfo.scss';
@@ -22,8 +22,8 @@ const DailyWeatherInfo = ({
       <li>Humidity</li>
       <li className="daily-weather-info__wind">{degToCompass(wind_deg)} {Math.round(wind_speed)}mph</li>
       <li>{humidity}</li>
-      <li className="panel__sunrise">Sunrise {convertEpochToHour(sunrise)}</li>
-      <li className="panel__sunset">Sunset {convertEpochToHour(sunset)}</li>
+      <li className="panel__sunrise">Sunrise {convertEpochtoHour(sunrise)}</li>
+      <li className="panel__sunset">Sunset {convertEpochtoHour(sunset)}</li>
     </ul>
   </div>
 );

@@ -14,20 +14,23 @@ const mapState = (state) => ({
 });
 
 const DailyWeather = ({ DailyWeatherData }) => (
-  <ul className="daily-weather">
-    {DailyWeatherData.map((data, index) => (
-      <li key={data.dt} className="daily-weather__list">
-        <Accordion>
-          <AccordionSummary>
-            <DailyWeatherSummary {...data} index={index} />
-          </AccordionSummary>
-          <AccordionPanel>
-            <DailyWeatherInfo {...data} />
-          </AccordionPanel>
-        </Accordion>
-      </li>
-    ))};
-  </ul>
+  <>
+    <h2 className="weather-app__sub-heading">Next 7 days</h2>
+    <ul className="daily-weather">
+      {DailyWeatherData.map((data, index) => (
+        <li key={data.dt} className="daily-weather__list">
+          <Accordion>
+            <AccordionSummary>
+              <DailyWeatherSummary {...data} index={index} />
+            </AccordionSummary>
+            <AccordionPanel>
+              <DailyWeatherInfo {...data} />
+            </AccordionPanel>
+          </Accordion>
+        </li>
+      ))}
+    </ul>
+  </>
 );
 
 DailyWeather.propTypes = {

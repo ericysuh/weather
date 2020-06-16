@@ -1,7 +1,7 @@
 import React from 'react';
 // import LocationInput from '../LocationInput/LocationInput';
 import CurrentWeather from '../CurrentWeather/CurrentWeather';
-// import DailyWeather from '../DailyWeather/DailyWeather';
+import DailyWeather from '../DailyWeather/DailyWeather';
 import HourlyWeather from '../HourlyWeather/HourlyWeather';
 import WeatherCard from '../WeatherCard/WeatherCard';
 import WeatherHeader from '../WeatherHeader/WeatherHeader';
@@ -22,6 +22,7 @@ const App = () => (
 
     <WeatherCard view="back">
       <WeatherDetail />
+      <DailyWeather />
     </WeatherCard>
   </div>
 );
