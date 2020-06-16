@@ -6,6 +6,8 @@ import WeatherIcon from '../WeatherIcon/WeatherIcon';
 import { kelvinToFahrenheit } from '../../utilities/weatherUtils';
 import { getTime } from '../../utilities/timeUtils';
 
+import './WeatherDetail.scss';
+
 const useState = (state) => ({
   ...state.weatherData.current
 });
@@ -20,35 +22,35 @@ const WeatherDetail = ({
 }) => (
   <div className="weather-detail">
     <h2 className="weather-app__sub-heading">DETAILS</h2>
-    <ul className="weather-detail__list">
+    <ul className="weather-detail__current">
       <li className="weather-detail__list">
         <WeatherIcon description="thermometer" category="misc" id="thermometer" />
-        <span>Feels like</span>
+        <span className="weather-detail__list-label">Feels like</span>
         { kelvinToFahrenheit(feels_like) }&deg;
       </li>
-      <li>
+      <li className="weather-detail__list">
         <WeatherIcon description="sunrise" category="misc" id="sunrise" />
-        <span>Sunrise</span>
+        <span className="weather-detail__list-label">Sunrise</span>
         { getTime(sunrise) };
       </li>
-      <li>
+      <li className="weather-detail__list">
         <WeatherIcon description="sunset" category="misc" id="sunset" />
-        <span>Sunset</span>
+        <span className="weather-detail__list-label">Sunset</span>
         { getTime(sunset) };
       </li>
-      <li>
+      <li className="weather-detail__list">
         <WeatherIcon description="humidity" category="misc" id="humidity" />
-        <span>Humidity</span>
+        <span className="weather-detail__list-label">Humidity</span>
         { humidity }%;
       </li>
-      <li>
+      <li className="weather-detail__list">
         <WeatherIcon description="strong-wind" category="misc" id="strong-wind" />
-        <span>Wind</span>
+        <span className="weather-detail__list-label">Wind</span>
         { wind_speed }MPH;
       </li>
-      <li>
+      <li className="weather-detail__list">
         <WeatherIcon description="barometer" category="misc" id="barometer" />
-        <span>Pressure</span>
+        <span className="weather-detail__list-label">Pressure</span>
         { pressure } hPa;
       </li>
     </ul>

@@ -24,6 +24,26 @@ body {
   &__main {
     grid-area: main;
   }
+
+  &__sub-heading {
+    font-size: 16px;
+    font-family: 'M + 1p 100', Arial, Helvetica, sans-serif;
+    line-height: 1.2;
+    text-transform: uppercase;
+    
+    display: grid;
+    grid-template-columns: auto minmax(20px, 1fr);
+    column-gap: 10px;
+    align-items: center;
+    margin: 0;
+
+    &:after {
+      content: ' ';
+      display: block;
+      width: 100%;
+      border-top: 0.5px solid #fff;
+    }
+  }
 }
 
 @font-face {
