@@ -1,3 +1,5 @@
+/* eslint-disable react/default-props-match-prop-types */
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -18,7 +20,11 @@ WeatherCard.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
-  view: PropTypes.oneOf(['front', 'back']).isRequired
+  view: PropTypes.oneOf(['generic', 'back']).isRequired
+};
+
+WeatherCard.defaultProps = {
+  view: 'generic'
 };
 
 export default WeatherCard;

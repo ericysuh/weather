@@ -1,3 +1,5 @@
+/* eslint-disable react/default-props-match-prop-types */
+/* eslint-disable react/require-default-props */
 import React from 'react';
 // import LocationInput from '../LocationInput/LocationInput';
 import { connect } from 'react-redux';
@@ -19,7 +21,7 @@ const App = ({ city }) => {
 
     return (
       <WeatherCard>
-        hello world, input zipcode!
+        <input className="weather-input" type="text" placeholder="Enter Zipcode" />
       </WeatherCard>
     );
   };
@@ -55,6 +57,10 @@ const App = ({ city }) => {
 
 App.propTypes = {
   city: PropTypes.string.isRequired
+};
+
+App.defaultProps = {
+  city: ''
 };
 
 export default connect(mapState)(App);
