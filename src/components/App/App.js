@@ -1,5 +1,7 @@
 import React from 'react';
 // import LocationInput from '../LocationInput/LocationInput';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import CurrentWeather from '../CurrentWeather/CurrentWeather';
 import DailyWeather from '../DailyWeather/DailyWeather';
 import HourlyWeather from '../HourlyWeather/HourlyWeather';
@@ -9,22 +11,50 @@ import WeatherDetail from '../WeatherDetail/WeatherDetail';
 
 import './App.scss';
 
+const mapState = (state) => ({ ...state.weatherData });
 
-const App = () => (
-  <div className="weather-app">
-    <WeatherCard view="front">
-      <WeatherHeader />
-      <div className="weather-app__main">
-        <CurrentWeather />
-      </div>
-      <HourlyWeather />
-    </WeatherCard>
+const App = ({ city }) => {
+  const maybeRenderFirstTimeUser = () => {
+    if (city.length) return null;
 
-    <WeatherCard view="back">
-      <WeatherDetail />
-      <DailyWeather />
-    </WeatherCard>
-  </div>
-);
+    return (
+      <WeatherCard>
+        hello world, input zipcode!
+      </WeatherCard>
+    );
+  };
 
-export default App;
+  const maybeRenderWeather = () => {
+    if (!city.length) return null;
+
+    return (
+      <>
+        <WeatherCard view="front">
+          <WeatherHeader />
+          <div className="weather-app__main">
+            <CurrentWeather />
+          </div>
+          <HourlyWeather />
+        </WeatherCard>
+
+        <WeatherCard view="back">
+          <WeatherDetail />
+          <DailyWeather />
+        </WeatherCard>
+      </>
+    );
+  };
+
+  return (
+    <div className="weather-app">
+      {maybeRenderFirstTimeUser()}
+      {maybeRenderWeather()}
+    </div>
+  );
+};
+
+App.propTypes = {
+  city: PropTypes.string.isRequired
+};
+
+export default connect(mapState)(App);
