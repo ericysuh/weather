@@ -1,12 +1,10 @@
 .weather-card {
   width: 420px;
   min-height: 700px;
-  max-height: 700px;
-  padding: 15px 10px;
-
-  display: grid;
+  padding: 20px;
 
   &--front {
+    display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
       "nav"

@@ -31,27 +31,27 @@ const WeatherDetail = ({
       <li className="weather-detail__list">
         <WeatherIcon description="sunrise" category="misc" id="sunrise" />
         <span className="weather-detail__list-label">Sunrise</span>
-        { getTime(sunrise) };
+        { getTime(sunrise) }
       </li>
       <li className="weather-detail__list">
         <WeatherIcon description="sunset" category="misc" id="sunset" />
         <span className="weather-detail__list-label">Sunset</span>
-        { getTime(sunset) };
+        { getTime(sunset) }
       </li>
       <li className="weather-detail__list">
         <WeatherIcon description="humidity" category="misc" id="humidity" />
         <span className="weather-detail__list-label">Humidity</span>
-        { humidity }%;
+        { humidity }%
       </li>
       <li className="weather-detail__list">
         <WeatherIcon description="strong-wind" category="misc" id="strong-wind" />
         <span className="weather-detail__list-label">Wind</span>
-        { wind_speed }MPH;
+        { wind_speed }MPH
       </li>
       <li className="weather-detail__list">
         <WeatherIcon description="barometer" category="misc" id="barometer" />
         <span className="weather-detail__list-label">Pressure</span>
-        { pressure } hPa;
+        { pressure } hPa
       </li>
     </ul>
   </div>

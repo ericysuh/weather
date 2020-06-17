@@ -23,7 +23,7 @@ const DailyWeather = ({ DailyWeatherData }) => (
             <AccordionSummary>
               <DailyWeatherSummary {...data} index={index} />
             </AccordionSummary>
-            <AccordionPanel>
+            <AccordionPanel className="daily-weather__detail">
               <DailyWeatherInfo {...data} />
             </AccordionPanel>
           </Accordion>

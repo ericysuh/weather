@@ -1,14 +1,13 @@
 .daily-weather {
   margin: 0;
-  padding: 0;
+  padding: 20px 0;
   list-style: none;
- 
+  display: grid;
+  
   &__list{
     
-    border-bottom: 1px solid grey;
-  
-    &:last-child {
-      border-bottom: none;
+    &:first-child {
+      display: none;
     }
   }
 }

@@ -14,13 +14,11 @@ const DailyWeatherSummary = ({
 }) => {
   const day = getDayOfWeek(dt);
   return (
-    <div className="daily-weather-summary">
-      <span>{day}</span>
+    <div className="daily-weather__summary">
+      <span className="daily-weather__day">{day}</span>
       <WeatherIcon {...weather[0]} category="owm-night" />
-      <span>
-        {kelvinToFahrenheit(temp.max)}&deg;
-        {kelvinToFahrenheit(temp.min)}&deg;
-      </span>
+      <span className="daily-weather__max">{kelvinToFahrenheit(temp.max)}&deg;</span>
+      <span className="daily-weather__min">{kelvinToFahrenheit(temp.min)}&deg;</span>
     </div>
   );
 };
