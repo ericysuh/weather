@@ -3,6 +3,7 @@ export const storageKey = {
   dailyWeater: 'dailyWeatherData'
 };
 export const weatherAPI = {
+  baseURL: 'https://api.openweathermap.org/data/2.5/',
   key: '2c40af73a52b23160708ffb085d745cc'
 };
 export const postalCodeRegex = {

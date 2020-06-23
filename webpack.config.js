@@ -37,7 +37,7 @@ module.exports = {
               name: "./src/assets/fonts/[name].[ext]"
             }
           }
-        ]  
+        ]
       }
     ],
   },
