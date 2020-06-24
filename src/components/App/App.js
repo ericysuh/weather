@@ -47,7 +47,7 @@ const App = ({ city, dispatch }) => {
           <HourlyWeather />
         </WeatherCard>
 
-        <WeatherCard view="back">
+        <WeatherCard>
           <WeatherDetail />
           <DailyWeather />
         </WeatherCard>
@@ -64,7 +64,7 @@ const App = ({ city, dispatch }) => {
 };
 
 App.propTypes = {
-  city: PropTypes.string.isRequired,
+  city: PropTypes.string,
   dispatch: PropTypes.func.isRequired
 };
 

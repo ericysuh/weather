@@ -20,7 +20,7 @@ WeatherCard.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
-  view: PropTypes.oneOf(['generic', 'back']).isRequired
+  view: PropTypes.oneOf(['generic', 'front'])
 };
 
 WeatherCard.defaultProps = {

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WeatherIcon from '../../WeatherIcon/WeatherIcon';
-import { kelvinToFahrenheit } from '../../../utilities/weatherUtils';
 import { convertEpochtoHour } from '../../../utilities/timeUtils';
 
 import './HourlyInfo.scss';
@@ -17,7 +16,7 @@ const HourlyInfo = ({
 
   const weatherIcon = weather[0];
 
-  const currentTemp = kelvinToFahrenheit(temp);
+  const currentTemp = temp;
 
   const { minTemp, maxTemp } = minMax;
 

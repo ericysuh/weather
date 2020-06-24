@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import WeatherIcon from '../WeatherIcon/WeatherIcon';
-import { kelvinToFahrenheit } from '../../utilities/weatherUtils';
 
 import './CurrentWeather.scss';
 
@@ -19,10 +18,10 @@ const CurrentWeather = ({
       <WeatherIcon {...weather[0]} category="owm-night" />
       <span className="current-weather__text">{weather[0].description}</span>
     </span>
-    <p className="current-weather__now">{kelvinToFahrenheit(temp)}&deg;</p>
+    <p className="current-weather__now">{temp}&deg;</p>
     <span className="current-weather__range">
-      <span className="current-weather__range-temp">{kelvinToFahrenheit(dailyTemp.min)}&deg; F</span>
-      <span className="current-weather__range-temp">{kelvinToFahrenheit(dailyTemp.max)}&deg; F</span>
+      <span className="current-weather__range-temp">{dailyTemp.min}&deg; F</span>
+      <span className="current-weather__range-temp">{dailyTemp.max}&deg; F</span>
     </span>
 
   </div>

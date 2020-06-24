@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import WeatherIcon from '../WeatherIcon/WeatherIcon';
-import { kelvinToFahrenheit } from '../../utilities/weatherUtils';
 import { getTime } from '../../utilities/timeUtils';
 
 import './WeatherDetail.scss';
@@ -26,7 +25,7 @@ const WeatherDetail = ({
       <li className="weather-detail__list">
         <WeatherIcon description="thermometer" category="misc" id="thermometer" />
         <span className="weather-detail__list-label">Feels like</span>
-        { kelvinToFahrenheit(feels_like) }&deg;
+        {feels_like}&deg;
       </li>
       <li className="weather-detail__list">
         <WeatherIcon description="sunrise" category="misc" id="sunrise" />

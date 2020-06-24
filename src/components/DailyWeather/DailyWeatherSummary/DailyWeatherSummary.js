@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { getDayOfWeek } from '../../../utilities/timeUtils';
-import { kelvinToFahrenheit } from '../../../utilities/weatherUtils';
 import WeatherIcon from '../../WeatherIcon/WeatherIcon';
 
 import './DailyWeatherSummary.scss';
@@ -17,8 +16,8 @@ const DailyWeatherSummary = ({
     <div className="daily-weather__summary">
       <span className="daily-weather__day">{day}</span>
       <WeatherIcon {...weather[0]} category="owm-night" />
-      <span className="daily-weather__max">{kelvinToFahrenheit(temp.max)}&deg;</span>
-      <span className="daily-weather__min">{kelvinToFahrenheit(temp.min)}&deg;</span>
+      <span className="daily-weather__max">{temp.max}&deg;</span>
+      <span className="daily-weather__min">{temp.min}&deg;</span>
     </div>
   );
 };
