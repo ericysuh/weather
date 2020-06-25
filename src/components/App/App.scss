@@ -50,6 +50,10 @@ h1 {
   grid-template-columns: 1fr 1fr;
   column-gap: 20px;
 
+  &__single {
+    grid-template-columns: 1fr;
+  }
+  
   &__main {
     grid-area: main;
   }
@@ -72,25 +76,5 @@ h1 {
       width: 100%;
       border-top: 0.5px solid #fff;
     }
-  }
-}
-
-.weather-input {
-  display: block;
-  width: 80%;
-  padding: 10px;
-  margin: 0 auto;
-  border: none;
-  font-size: 16px;
-
-  position: relative;
-  top: 25%;
-  transform: translateY(-50%);
-
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-
-  &::placeholder {
-    color: rgba(255, 255, 255, 0.5);
   }
 }

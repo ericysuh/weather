@@ -24,7 +24,7 @@ WeatherCard.propTypes = {
 };
 
 WeatherCard.defaultProps = {
-  view: 'generic'
+  view: 'generic',
 };
 
 export default WeatherCard;

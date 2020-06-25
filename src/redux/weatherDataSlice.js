@@ -68,16 +68,16 @@ const weatherDataSlice = createSlice({
   extraReducers: {
     [fetchCurrentWeatherData.pending]: (state) => {
       state.isLoading = true;
-      state.error = {};
+      state.error = '';
     },
     [fetchCurrentWeatherData.fulfilled]: (state, action) => {
       action.payload.isLoading = false;
-      action.payload.error = {};
+      action.payload.error = '';
       return action.payload;
     },
     [fetchCurrentWeatherData.rejected]: (state, action) => {
       state.isLoading = false;
-      state.error = action.error;
+      state.error = action.error.message;
     }
   }
 });

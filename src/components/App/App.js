@@ -5,31 +5,26 @@ import React from 'react';
 // import LocationInput from '../LocationInput/LocationInput';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import CurrentWeather from '../CurrentWeather/CurrentWeather';
 import DailyWeather from '../DailyWeather/DailyWeather';
 import HourlyWeather from '../HourlyWeather/HourlyWeather';
 import WeatherCard from '../WeatherCard/WeatherCard';
+import LocationInput from '../LocationInput/LocationInput';
 import WeatherHeader from '../WeatherHeader/WeatherHeader';
 import WeatherDetail from '../WeatherDetail/WeatherDetail';
-import { fetchCurrentWeatherData } from '../../redux/weatherDataSlice';
 
 import './App.scss';
 
 const mapState = (state) => ({ ...state.weatherData });
 
-const App = ({ city, dispatch }) => {
-  const fetchData = (event) => {
-    if (event.key !== 'Enter') return;
-
-    dispatch(fetchCurrentWeatherData(event.target.value));
-  };
-
+const App = ({ city }) => {
   const maybeRenderFirstTimeUser = () => {
     if (city.length) return null;
 
     return (
       <WeatherCard>
-        <input className="weather-input" type="text" placeholder="Enter Zipcode" onKeyUp={fetchData} />
+        <LocationInput />
       </WeatherCard>
     );
   };
@@ -55,8 +50,12 @@ const App = ({ city, dispatch }) => {
     );
   };
 
+  const classes = classNames('weather-app', {
+    'weather-app--single': !city.length
+  });
+
   return (
-    <div className="weather-app">
+    <div className={classes}>
       {maybeRenderFirstTimeUser()}
       {maybeRenderWeather()}
     </div>
@@ -64,8 +63,7 @@ const App = ({ city, dispatch }) => {
 };
 
 App.propTypes = {
-  city: PropTypes.string,
-  dispatch: PropTypes.func.isRequired
+  city: PropTypes.string
 };
 
 App.defaultProps = {
