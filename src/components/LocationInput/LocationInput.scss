@@ -1,9 +1,6 @@
-@mixin locationInput {
-  position: absolute;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
+.location-input {
   width: 60%;
-
+  margin: 0 auto; 
   &__field {
     // display: block;
     width: 100%;
@@ -27,13 +24,4 @@
     transform: translateY(100%);
     color: red;
   }
-}
-
-.location-input {
-  @include locationInput();
-  top: 50%;
-}
-.location-input2 {
-  @include locationInput();
-  position: relative;
 }

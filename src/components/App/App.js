@@ -24,7 +24,7 @@ const App = ({ city }) => {
 
     return (
       <WeatherCard>
-        <LocationInput />
+        <LocationInput className="weather-app__input" />
       </WeatherCard>
     );
   };

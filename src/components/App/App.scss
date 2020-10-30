@@ -50,6 +50,13 @@ h1 {
   grid-template-columns: 1fr 1fr;
   column-gap: 20px;
 
+  &__input {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
   &__single {
     grid-template-columns: 1fr;
   }

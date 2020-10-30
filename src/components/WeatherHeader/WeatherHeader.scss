@@ -2,6 +2,10 @@
   grid-area: nav;
   text-align: center;
 
+  &__input {
+    margin-bottom: 15px;
+  }
+
   &__city {
     margin: 0;
     font-family: 'M + 1p 100', Arial, Helvetica, sans-serif;

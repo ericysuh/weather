@@ -7,7 +7,7 @@ import './LocationInput.scss';
 
 const mapState = (state) => ({ ...state.weatherData });
 
-const LocationInput = ({ error, dispatch }) => {
+const LocationInput = ({ error, dispatch, className }) => {
   const fetchData = (event) => {
     if (event.key !== 'Enter') return;
 
@@ -19,8 +19,13 @@ const LocationInput = ({ error, dispatch }) => {
     return <span className="location-input__error">{error}</span>;
   };
 
+  let localClassName = 'location-input';
+  if (className.length) {
+    localClassName += ` ${className}`;
+  }
+
   return (
-    <div className="location-input">
+    <div className={localClassName}>
       <input className="location-input__field" type="text" placeholder="Enter Zipcode" onKeyUp={fetchData} />
       {maybeRenderError()}
     </div>
@@ -29,11 +34,13 @@ const LocationInput = ({ error, dispatch }) => {
 
 LocationInput.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  error: PropTypes.string
+  error: PropTypes.string,
+  className: PropTypes.string
 };
 
 LocationInput.defaultProps = {
-  error: ''
+  error: '',
+  className: ''
 };
 
 export default connect(mapState)(LocationInput);
