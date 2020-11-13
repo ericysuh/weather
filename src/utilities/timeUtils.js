@@ -28,7 +28,7 @@ export const getDayOfWeek = (epoch) => {
 export const getTime = (epoch) => {
   const utc = convertEpochToUTC(epoch);
   const { hour, suffix } = getRegularTime(utc.getHours());
-  const minutes = utc.getMinutes();
+  const minutes = (utc.getMinutes() < 10) ? `0${utc.getMinutes()}` : utc.getMinutes();
 
   return `${hour}:${minutes}${suffix}`;
 };

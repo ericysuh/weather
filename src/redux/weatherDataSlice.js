@@ -52,6 +52,7 @@ const fetchCurrentWeatherData = createAsyncThunk(
       // Get current/hourly/daily weather
       const fullData = await fetchOneCallApi(coord);
       fullData.city = name;
+      fullData.zipcode = zipcode;
       updateTempData(fullData);
 
       return fullData;
