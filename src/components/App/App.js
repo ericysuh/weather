@@ -13,6 +13,7 @@ import WeatherCard from '../WeatherCard/WeatherCard';
 import LocationInput from '../LocationInput/LocationInput';
 import WeatherHeader from '../WeatherHeader/WeatherHeader';
 import WeatherDetail from '../WeatherDetail/WeatherDetail';
+import FooterLinks from '../FooterLinks/FooterLinks';
 import { fetchCurrentWeatherData } from '../../redux/weatherDataSlice';
 
 import './App.scss';
@@ -26,9 +27,12 @@ const App = ({
     if (city.length) return null;
 
     return (
-      <WeatherCard>
-        <LocationInput className="weather-app__input" />
-      </WeatherCard>
+      <>
+        <WeatherCard>
+          <LocationInput className="weather-app__input" />
+        </WeatherCard>
+        <FooterLinks />
+      </>
     );
   };
 
@@ -57,12 +61,14 @@ const App = ({
           <WeatherDetail />
           <DailyWeather />
         </WeatherCard>
+        <FooterLinks />
       </>
     );
   };
 
   const classes = classNames('weather-app', {
-    'weather-app--single': !city.length
+    'weather-app--single': !city.length,
+    'weather-app--double': city.length,
   });
 
   return (

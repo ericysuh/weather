@@ -47,8 +47,7 @@ h1 {
   transform: translate(-50%, -50%);
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 20px;
+  grid-gap: 20px;
 
   &__input {
     position: absolute;
@@ -57,8 +56,19 @@ h1 {
     transform: translateY(-50%) translateX(-50%);
   }
 
-  &__single {
+  &--single {
     grid-template-columns: 1fr;
+    grid-template-areas: 
+      "card"
+      "link";
+  }
+
+  &--double {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "card card"
+      "link link";
+    column-gap: 20px;  
   }
   
   &__main {
