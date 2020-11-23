@@ -1,8 +1,17 @@
 .weather-card {
   position: relative;
-  width: 420px;
+  width: 100%;
   min-height: 700px;
   padding: 20px;
+    
+  &:nth-child(2){
+    margin-bottom: 7px;
+  }
+  
+  @media (min-width: $medium-breakpoint) {
+    width: 420px;
+    margin: auto; 
+  }
 
   &--front {
     display: grid;
