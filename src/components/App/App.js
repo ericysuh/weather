@@ -72,9 +72,11 @@ const App = ({
   });
 
   return (
-    <div className={classes}>
-      {maybeRenderFirstTimeUser()}
-      {maybeRenderWeather()}
+    <div className="wrapper">
+      <div className={classes}>
+        {maybeRenderFirstTimeUser()}
+        {maybeRenderWeather()}
+      </div>
     </div>
   );
 };

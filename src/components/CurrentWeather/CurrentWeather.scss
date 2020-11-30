@@ -31,7 +31,10 @@
   }
 
   &__now {
-    font-size: 140px;
+    font-size: 110px;
+    @media (min-width: $medium-breakpoint) {
+      font-size: 140px;
+    }
     margin: 0;
     font-family: 'M + 1p 100', Arial, Helvetica, sans-serif;
     line-height: 1;
