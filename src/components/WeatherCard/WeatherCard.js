@@ -3,39 +3,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { militaryTime } from '../../utilities/timeUtils';
+import backgroundType from '../../utilities/backgroundType';
 
 import './WeatherCard.scss';
 
 const mapState = (state) => ({ ...state.weatherData });
 
 const WeatherCard = ({ children, view, current }) => {
-  function backgroundType() {
-    const currentTime = militaryTime(current.dt);
-    const sunriseTime = militaryTime(current.sunrise);
-    const sunsetTime = militaryTime(current.sunset);
-
-    if (currentTime > sunriseTime && currentTime < sunsetTime) {
-      if (current.weather.description === 'cloudy') {
-        return 'cloudy';
-      } if (current.weather.description === 'rain') {
-        return 'rain';
-      } if (current.weather.description === 'fog') {
-        return 'fog';
-      } if (current.weather.description === 'snow') {
-        return 'snow';
-      } if (current.weather.description === 'hot') {
-        return 'hot';
-      } if (current.weather.description === 'sand') {
-        return 'sand';
-      } if (current.weather.description === 'tornado') {
-        return 'tornado';
-      } return 'day';
-    } return 'night';
-  }
+  const background = backgroundType(current);
 
   return (
-    <div className={`weather-card weather-card--${view} weather-card--${backgroundType()}`}>
+    <div className={`weather-card weather-card--${view} weather-card--${background}`}>
       {children}
     </div>
   );

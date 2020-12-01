@@ -32,8 +32,3 @@ export const getTime = (epoch) => {
 
   return `${hour}:${minutes}${suffix}`;
 };
-
-export const militaryTime = (epoch) => {
-  const utc = convertEpochToUTC(epoch);
-  return utc.getHours();
-};
