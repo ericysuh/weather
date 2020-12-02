@@ -1,9 +1,8 @@
-# react-redux-starter
+# Weather App
 Customized starter app for using react + redux
-
-This repo is set up using the following framework + tools
-
 ```
+Weather.eric-suh.com
+
 //
 - React
 - Redux (using redux-toolkit)
@@ -16,3 +15,14 @@ This repo is set up using the following framework + tools
 - Stylelint
 - Husky/Lint-staged
 ```
+## Features
+
+* Fully responsive design.
+* Hourly weather with graphical representation.
+* Current weather details.
+* Background color changes based on weather description.
+* 7 days forecast.
+* Data gathered from OpenWeatherMap, via their public API. Works with US zipcode only.
+* Weather data saved through localstorage. Data is updated on page refresh (if after 10 minutes).
+
+## Screenshot
