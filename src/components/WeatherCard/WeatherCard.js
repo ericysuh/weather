@@ -10,7 +10,7 @@ import './WeatherCard.scss';
 const mapState = (state) => ({ ...state.weatherData });
 
 const WeatherCard = ({ children, view, current }) => {
-  const background = backgroundType(current);
+  const background = (!current) ? 'night' : backgroundType(current);
 
   return (
     <div className={`weather-card weather-card--${view} weather-card--${background}`}>

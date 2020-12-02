@@ -1,7 +1,7 @@
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 const getRegularTime = (militaryTime) => {
-  const hour = (militaryTime === 0) ? '12' : militaryTime % 12;
+  const hour = (militaryTime === 0 || militaryTime === 12) ? '12' : militaryTime % 12;
   const suffix = (militaryTime >= 12) ? 'pm' : 'am';
 
   return {
